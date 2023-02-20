@@ -1,7 +1,8 @@
-import React,{useEffect} from 'react'
-import {useDispatch,useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deletePostAction, listPosts, listPostsByCat, listPostsByLan } from '../../actions/postAction';
+import { API_URL } from '../../constants/userConstants';
 import Loader from '../Loader';
 import Message from '../Message';
 import Paginate from '../Paginate';
@@ -99,7 +100,7 @@ function ViewBloglister({category,language,type}) {
         <tr>
         <th scope="row"> { category || language ? id+1 :(page-1) * 10 +id +1 } </th>
         <td> {post.mainTitle} </td>
-        <td><img width='70' src={post.image} alt={ post.mainTitle }/></td>
+        <td><img width='70' src={`${API_URL}/${post.image}`} alt={ post.mainTitle }/></td>
         <td>{post.subTitle} </td>
         <td>{post.catagory} </td>
         <td>{post.language}</td>

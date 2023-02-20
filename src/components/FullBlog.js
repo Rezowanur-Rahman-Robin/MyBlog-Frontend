@@ -1,6 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTotalReading } from '../actions/postAction';
+import { API_URL } from '../constants/userConstants';
 
 
 
@@ -31,7 +32,7 @@ useEffect(() => {
                         <div className="post-thumnile">
                             <div className="slide-thumbnile">
                                 <div className="single-image">
-                                     <img src={post.image}
+                                     <img src={`${API_URL}/${post.image}`}
                                         alt="blog"/>
                                     <div className="post-date">
                                         <span><i className="fa fa-eye"></i> {totalReading}</span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../constants/userConstants';
 
 function RealtedPost({post}) {
     return (
@@ -8,7 +9,7 @@ function RealtedPost({post}) {
                                     <div className="post-thumbnile ">
                                     <Link to={ `/blog/${post._id}` }>
 
-                                      <img src={post.image}
+                                      <img src={`${API_URL}/${post.image}`}
                                          alt={post.mainTitle} />
 
                                     </Link>
