@@ -6,6 +6,7 @@ import { createNewPostAction } from '../../actions/postAction';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import SidebarMenu from '../../components/SidebarMenu';
+import { API_URL } from '../../constants/userConstants';
 
 
 
@@ -89,7 +90,7 @@ function InsertBlogScreen({history}) {
                 }
             }
 
-            const {data}=await axios.post('/api/upload',formData,config)
+            const {data}=await axios.post(`${API_URL}/api/upload`,formData,config)
 
             setuploadedImageUrl(data)
             setUploading(false)

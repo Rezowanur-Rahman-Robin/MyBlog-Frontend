@@ -1,15 +1,16 @@
 import axios from 'axios';
-import { 
+import {
+    API_URL,
     USER_DETAILS_FAIL,
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
     USER_LOGIN_FAIL,
-    USER_LOGIN_REQUEST, 
+    USER_LOGIN_REQUEST,
     USER_LOGIN_SUCCESS,
     USER_LOGOUT,
-    USER_REGISTER_FAIL, 
-    USER_REGISTER_REQUEST, 
-    USER_REGISTER_SUCCESS ,
+    USER_REGISTER_FAIL,
+    USER_REGISTER_REQUEST,
+    USER_REGISTER_SUCCESS
 } from '../constants/userConstants';
 
 
@@ -27,7 +28,7 @@ export const login=(email,password)=> async (dispatch)=>{
             }
         }
 
-        const {data} = await axios.post('/api/users/login',{email,password},config)
+        const {data} = await axios.post(`${API_URL}/api/users/login`,{email,password},config)
 
         dispatch({
             type:USER_LOGIN_SUCCESS,
@@ -62,7 +63,7 @@ export const register=(name,email,password)=> async (dispatch)=>{
             }
         }
 
-        const {data} = await axios.post('/api/users/signup',{name,email,password},config)
+        const {data} = await axios.post(`${API_URL}/api/users/signup`,{name,email,password},config)
 
         dispatch({
             type:USER_REGISTER_SUCCESS,
@@ -100,7 +101,7 @@ export const getUserDetails=(id)=> async (dispatch,getState)=>{
             }
         }
 
-        const {data} = await axios.get(`/api/users/${id}`,config)
+        const {data} = await axios.get(`${API_URL}/api/users/${id}`,config)
 
 
         dispatch({
