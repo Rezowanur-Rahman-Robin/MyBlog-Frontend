@@ -116,7 +116,7 @@ function ViewBloglister({category,language,type}) {
         </td>
         <td> 
             <button class="btn btn-danger" onClick={()=> dispatch(deletePostAction(post._id))} >Delete</button> 
-            {deletePostLoading && <Loader w="20px" h="20px"/>}
+            {deletePostLoading && deletedPost._id === post._id && <Loader w="20px" h="20px"/>}
             
         </td>
   
