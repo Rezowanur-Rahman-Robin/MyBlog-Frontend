@@ -17,8 +17,8 @@ function InsertBlogScreen({history}) {
     const [desc,setdesc]=useState('')
     const [uploadedImageUrl,setuploadedImageUrl]=useState('')
     
-    const [category,setCategoy]=useState('')
-    const [language,setLanguage]=useState('')
+    const [category,setCategoy]=useState('web')
+    const [language,setLanguage]=useState('C++')
     const [pinnedPost,setPinnedPost]=useState(false)
     const [postContents,setPostContents]=useState('')
     const [uploading , setUploading] = useState(false)
