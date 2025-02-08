@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deletePostAction, listPosts, listPostsByCat, listPostsByLan } from '../../actions/postAction';
@@ -45,6 +45,7 @@ function ViewBloglister({category,language,type}) {
     const deletePostLoading = deletePost.loading;
     const deleteError = deletePost.error;
     
+    const [targetDeletePostId,setTargetDeletePostId] = useState('')
 
 
     
@@ -98,32 +99,45 @@ function ViewBloglister({category,language,type}) {
   selectedPosts.map((post,id)=>{
       return (
         <tr>
-        <th scope="row"> { category || language ? id+1 :(page-1) * 10 +id +1 } </th>
-        <td> {post.mainTitle} </td>
-        <td><img width='70' src={`${API_URL}${post.image}`} alt={ post.mainTitle }/></td>
-        <td>{post.subTitle} </td>
-        <td>{post.catagory} </td>
-        <td>{post.language}</td>
-        <td>{post.totalReading}</td>
-        <td>{post.comments.length}</td>
-        <td>{ new Date(post.updatedAt).toDateString()}</td>
-        <td>
-            <Link to={`/adminArea/blog/edit/${post._id}`} >
-            <button  class="btn btn-warning">Edit</button> 
-
+          <th scope="row">
+            {" "}
+            {category || language ? id + 1 : (page - 1) * 10 + id + 1}{" "}
+          </th>
+          <td> {post.mainTitle} </td>
+          <td>
+            <img
+              width="70"
+              src={`${API_URL}${post.image}`}
+              alt={post.mainTitle}
+            />
+          </td>
+          <td>{post.subTitle} </td>
+          <td>{post.catagory} </td>
+          <td>{post.language}</td>
+          <td>{post.totalReading}</td>
+          <td>{post.comments.length}</td>
+          <td>{new Date(post.updatedAt).toDateString()}</td>
+          <td>
+            <Link to={`/adminArea/blog/edit/${post._id}`}>
+              <button class="btn btn-warning">Edit</button>
             </Link>
-             
-        </td>
-        <td> 
-            <button class="btn btn-danger" onClick={()=> dispatch(deletePostAction(post._id))} >Delete</button> 
-            {deletePostLoading && deletedPost._id === post._id && <Loader w="20px" h="20px"/>}
-            
-        </td>
-  
-  
-  
-      </tr>
-      )
+          </td>
+          <td>
+            <button
+              class="btn btn-danger"
+              onClick={() => {
+                dispatch(deletePostAction(post._id));
+                setTargetDeletePostId(post._id);
+              }}
+            >
+              Delete
+            </button>
+            {deletePostLoading && targetDeletePostId === post._id && (
+              <Loader w="20px" h="20px" />
+            )}
+          </td>
+        </tr>
+      );
   })
 }
 
