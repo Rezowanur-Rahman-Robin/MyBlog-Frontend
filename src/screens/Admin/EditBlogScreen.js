@@ -277,7 +277,7 @@ function EditBlogScreen({match,history}) {
                              <label for="Image">
                                  Current Banner Image:
                              </label>
-                             <Image src={uploadedImageUrl} />                          
+                             <Image src={`${API_URL}${uploadedImageUrl}`} />                          
                     </div>
 
                     <div className="form-group">
