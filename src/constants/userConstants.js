@@ -11,5 +11,5 @@ export const USER_DETAILS_REQUEST='USER_DETAILS_REQUEST'
 export const USER_DETAILS_SUCCESS='USER_DETAILS_SUCCESS'
 export const USER_DETAILS_FAIL='USER_DETAILS_FAIL'
 export const USER_DETAILS_RESET = 'USER_DETAILS_RESET'
-export const API_URL = "https://copper-fawn-gear.cyclic.app"
+export const API_URL = "https://myblog-api-8h4c.onrender.com"
 
