@@ -9,7 +9,7 @@ function RealtedPost({post}) {
                                     <div className="post-thumbnile ">
                                     <Link to={ `/blog/${post._id}` }>
 
-                                      <img src={`${API_URL}/${post.image}`}
+                                      <img src={`${API_URL}${post.image}`}
                                          alt={post.mainTitle} />
 
                                     </Link>

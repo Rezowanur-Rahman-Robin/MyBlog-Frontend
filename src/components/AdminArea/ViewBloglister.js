@@ -100,7 +100,7 @@ function ViewBloglister({category,language,type}) {
         <tr>
         <th scope="row"> { category || language ? id+1 :(page-1) * 10 +id +1 } </th>
         <td> {post.mainTitle} </td>
-        <td><img width='70' src={`${API_URL}/${post.image}`} alt={ post.mainTitle }/></td>
+        <td><img width='70' src={`${API_URL}${post.image}`} alt={ post.mainTitle }/></td>
         <td>{post.subTitle} </td>
         <td>{post.catagory} </td>
         <td>{post.language}</td>

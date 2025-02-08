@@ -16,7 +16,7 @@ function Blog({post,}) {
                                     <div className="post-img">
                                         <Link to={ `/blog/${post._id}` }>
 
-                                       <img src={`${API_URL}/${post.image}`}
+                                       <img src={`${API_URL}${post.image}`}
                                         alt={post.mainTitle} />
 
                                         </Link>
